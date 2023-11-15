@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>去哪吃</title>
+    <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #app {
+            width: 300px;
+            background: white;
+        }
+        #result {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h6 style="text-align: center">去哪吃</h6>
+        <div style="text-align: center">
+            <button onclick="start()">开始</button>
+            <button onclick="stop()">停止</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        const state = {
+          run: false
+        };
+
+        const stArr = ["A3", "A4", "A5", "B3", "B4", "B5", "C3", "C4", "C5"];
+
+        const app = document.getElementById('app');
+        const result = document.getElementById('result');
+
+        function random(arr) {
+          const idx = Math.floor(Math.random() * arr.length);
+          return arr[idx];
+        }
+
+        function loopRandom(arr) {
+          if (!state.run) return;
+          result.innerText = random(arr);
+          requestAnimationFrame(function() {
+            loopRandom(arr);
+          });
+        }
+
+        function start() {
+          if (state.run) return;
+          state.run = true;
+          loopRandom(stArr);
+        }
+
+        function stop() {
+          state.run = false;
+        }
+    </script>
+</body>
+</html>
