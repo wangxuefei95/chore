@@ -21,20 +21,32 @@
             background: white;
         }
         #result {
-            text-align: center;
-            margin-top: 12px;
             font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+        .button-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .button-wrap button {
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <h6 style="text-align: center">去哪吃</h6>
-        <div style="text-align: center">
+        <div id="result">去哪吃？</div>
+        <div class="button-wrap">
             <button onclick="start()">开始</button>
+        </div>
+        <div class="button-wrap">
             <button onclick="stop()">停止</button>
         </div>
-        <div id="result"></div>
     </div>
     <script>
         const state = {
