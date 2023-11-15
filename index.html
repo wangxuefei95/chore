@@ -53,12 +53,13 @@
           run: false
         };
 
-        const stArr = ["A3", "A4", "A5", "B3", "B4", "B5", "C3", "C4", "C5"];
+        const stArr = ["A3", "A4", "A5", "B3", "B4", "B5", "C3", "C4"];
 
         const app = document.getElementById('app');
         const result = document.getElementById('result');
 
         function random(arr) {
+          arr.sort(item => (Math.random() - 0.5));
           const idx = Math.floor(Math.random() * arr.length);
           return arr[idx];
         }
